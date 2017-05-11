@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Quizz</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src="jquery.drag-drop.plugin.js"></script>
+        <script>
+            $(function() {
+               
+                $("#source3>div").dragdrop({
+                    makeClone: true,
+                    sourceClass: "pendingDrop",
+                    dropClass: "highlight",
+                    container: $('.content'),
+                    didDrop: function($src, $dst) {
+                        if ($dst.attr("id")!="destination")
+                            $dst = $dst.parents("#destination");
+                        var currentText = $dst.text();
+                        currentText += $src.text();
+                        $dst.text(currentText);
+                    }
+                });
+				
+				
+					$("#btnsbmt").click(function(){
+					divObj = document.getElementById("destination");
+					var result=divObj.textContent;
+					var trimmed = result.substring(5);
+					if(trimmed=="TIGER")
+					{
+					alert("HELLO!,Answer is CORRECT");
+					$('#destination').empty();
+					}
+					else
+					alert("HELLO.WRONG!");
+					$('#destination').empty();	
+					});
+            });
+        </script>
+	<style>
+			.panel.panel-primary {
+     background-image: url("https://firebase.google.com/images/backslant-home-repeat.svg");
+    color: white;
+}
+		.panel.my-panels{
+			background:white;
+			height:200px;
+			width:50%;
+			margin: auto;
+			
+		}
+	.myheader
+		{
+			color:#808080;
+			text-align:center;
+		}
+
+	</style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Hi Kids,try the Game!</h1>
+        </div>
+	<div class="row">
+	<h2>What is our National Animal?</h2>
+	</div>
+		<div class="row">
+				 <div class="content">
+					  <div id="source3" class="source boxesalpa">
+				<div>A</div>
+                <div>B</div>
+                <div>C</div>
+                <div>D</div>
+                <div>E</div>
+                <div>F</div>
+				<div>G</div>
+                <div>H</div>
+                <div>I</div>
+                <div>J</div>
+                <div>K</div>
+                <div>L</div>
+                <div>M</div>
+                <div>N</div>
+                <div>O</div>
+                <div>P</div>
+                <div>Q</div>
+                <div>R</div>
+				<div>S</div>
+                <div>T</div>
+                <div>U</div>
+                <div>V</div>
+                <div>W</div>
+                <div>X</div>
+                <div>Y</div>
+				<div>Z</div>
+            </div>
+				</div>
+				<div class="content">
+				<div id="destination" class="drop boxes">
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+		<button id="btnsbmt">Submit</button>
+		</div>
+    </body>
+	
+</html>
+
